@@ -26,13 +26,16 @@ a { color: #D8202A; text-decoration: none; }
 a:hover { color: #F2444E; }
 :focus-visible { outline: 2px solid #D8202A; outline-offset: 3px; }
 ::selection { background: #D8202A; color: #fff; }
-@keyframes mg-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
 @keyframes mg-letter { from { opacity: 0; transform: translateY(0.35em) scale(0.96) } 60% { opacity: 1; transform: translateY(-0.05em) scale(1.01) } to { opacity: 1; transform: none } }
 @keyframes mg-rise { from { opacity: 0; transform: translateY(18px) } to { opacity: 1; transform: none } }
 @keyframes mg-field { from { stroke-dashoffset: 1200 } to { stroke-dashoffset: 0 } }
 @keyframes mg-introfade { 0%,55% { opacity: 1 } 100% { opacity: 0 } }
 @keyframes mg-intrologo { 0% { opacity: 0; transform: scale(0.92) } 20% { opacity: 1; transform: scale(1) } 55% { opacity: 1; transform: scale(1) } 100% { opacity: 0; transform: translate(var(--mg-tx, -38vw), var(--mg-ty, -40vh)) scale(var(--mg-ts, 0.34)) } }
 [data-intro="skip"] [data-anim] { animation-duration: 0.01s !important; animation-delay: 0s !important; }
+[data-need] { position: relative; }
+[data-need]::after { content: "POTREBNE SLIKE"; position: absolute; left: 8px; bottom: 8px; z-index: 5; pointer-events: none; background: #D8202A; color: #fff; font-family: Chivo, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.14em; line-height: 1; padding: 5px 7px; }
+[data-need="big"]::after { left: clamp(20px, 4vw, 56px); bottom: clamp(20px, 4vw, 56px); font-size: 11px; padding: 7px 10px; letter-spacing: 0.16em; }
+[data-need="hero"]::after { left: auto; bottom: auto; right: clamp(20px, 4vw, 56px); top: 98px; font-size: 11px; padding: 7px 10px; letter-spacing: 0.16em; }
 [data-reveal] { will-change: clip-path, transform, opacity; }
 [data-reveal="rise"] { opacity: 0; transform: translateY(16px); transition: opacity 0.55s cubic-bezier(0.2,0,0,1) var(--mg-d, 0s), transform 0.7s cubic-bezier(0.2,0,0,1) var(--mg-d, 0s); }
 [data-reveal="rise"][data-inview="1"] { opacity: 1; transform: none; }
@@ -49,8 +52,6 @@ a:hover { color: #F2444E; }
 [data-day][data-today="1"] [data-slot] { border-color: rgba(255,255,255,0.35) !important; color: #fff !important; }
 [data-tcard]:hover [data-portrait] { filter: none !important; }
 [data-tcard]:hover { box-shadow: 0 0 0 1px #D8202A; }
-[data-pill="1"] { background: #D8202A !important; color: #fff !important; border-color: #D8202A !important; }
-[data-pill="1"]:hover { background: #B8151E !important; color: #fff !important; }
 [data-dot="1"] { border-color: #000 !important; }
 [data-dotin="1"] { background: #D8202A !important; }
 [data-tall="1"] { grid-row: span 2; }
@@ -114,12 +115,12 @@ a:hover { color: #F2444E; }
 .mg-h11:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
 .mg-h12:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
 .mg-h13:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
-.mg-h14:hover{background:#000 !important;color:#F2F2F2 !important}
-.mg-h15:hover{background:#000 !important;color:#F2F2F2 !important}
-.mg-h16:hover{background:#000 !important;color:#F2F2F2 !important}
-.mg-h17:hover{background:#000 !important;color:#F2F2F2 !important}
-.mg-h18:hover{background:#000 !important;color:#F2F2F2 !important}
-.mg-h19:hover{background:#000 !important;color:#F2F2F2 !important}
+.mg-h14:hover{border-color:#D8202A !important;color:#D8202A !important}
+.mg-h15:hover{border-color:#D8202A !important;color:#D8202A !important}
+.mg-h16:hover{background:#B8151E !important}
+.mg-h17:hover{border-color:#D8202A !important;color:#D8202A !important}
+.mg-h18:hover{border-color:#D8202A !important;color:#D8202A !important}
+.mg-h19:hover{background:#B8151E !important}
 .mg-h20:hover{border-color:#D8202A !important;color:#D8202A !important}
 .mg-h21:hover{border-color:#D8202A !important;color:#D8202A !important}
 .mg-h22:hover{background:#B8151E !important}
@@ -144,51 +145,45 @@ a:hover { color: #F2444E; }
 .mg-h41:hover{border-color:#D8202A !important;color:#D8202A !important}
 .mg-h42:hover{border-color:#D8202A !important;color:#D8202A !important}
 .mg-h43:hover{background:#B8151E !important}
-.mg-h44:hover{border-color:#D8202A !important;color:#D8202A !important}
-.mg-h45:hover{border-color:#D8202A !important;color:#D8202A !important}
-.mg-h46:hover{background:#B8151E !important}
-.mg-h47:hover{border-color:#D8202A !important;color:#D8202A !important}
-.mg-h48:hover{border-color:#D8202A !important;color:#D8202A !important}
-.mg-h49:hover{background:#B8151E !important}
-.mg-h50:hover{background:#B8151E !important;color:#fff !important}
+.mg-h44:hover{background:#B8151E !important;color:#fff !important}
+.mg-h45:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
+.mg-h46:hover{background:#fff !important;color:#000 !important}
+.mg-h47:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
+.mg-h48:hover{background:#fff !important;color:#000 !important}
+.mg-h49:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
+.mg-h50:hover{background:#fff !important;color:#000 !important}
 .mg-h51:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
 .mg-h52:hover{background:#fff !important;color:#000 !important}
-.mg-h53:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
-.mg-h54:hover{background:#fff !important;color:#000 !important}
-.mg-h55:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
-.mg-h56:hover{background:#fff !important;color:#000 !important}
-.mg-h57:hover{background:#000 !important;box-shadow:inset 0 0 0 1px #D8202A !important}
-.mg-h58:hover{background:#fff !important;color:#000 !important}
-.mg-h59:hover{transform:translate(-9px, -7px) !important;filter:none !important}
-.mg-h60:hover{transform:translate(7px, -8px) !important;filter:none !important}
-.mg-h61:hover{transform:translate(11px, -9px) !important;filter:none !important}
-.mg-h62:hover{transform:translate(-12px, 2px) !important;filter:none !important}
-.mg-h63:hover{transform:translate(-9px, 10px) !important;filter:none !important}
-.mg-h64:hover{transform:translate(2px, 12px) !important;filter:none !important}
-.mg-h65:hover{transform:translate(12px, 9px) !important;filter:none !important}
-.mg-h66:hover{border-color:#000 !important}
-.mg-h67:hover{border-color:#000 !important}
-.mg-h68:hover{border-color:#000 !important}
-.mg-h69:hover{border-color:#000 !important}
+.mg-h53:hover{transform:translate(-9px, -7px) !important;filter:none !important}
+.mg-h54:hover{transform:translate(7px, -8px) !important;filter:none !important}
+.mg-h55:hover{transform:translate(11px, -9px) !important;filter:none !important}
+.mg-h56:hover{transform:translate(-12px, 2px) !important;filter:none !important}
+.mg-h57:hover{transform:translate(-9px, 10px) !important;filter:none !important}
+.mg-h58:hover{transform:translate(2px, 12px) !important;filter:none !important}
+.mg-h59:hover{transform:translate(12px, 9px) !important;filter:none !important}
+.mg-h60:hover{border-color:#000 !important}
+.mg-h61:hover{border-color:#000 !important}
+.mg-h62:hover{border-color:#000 !important}
+.mg-h63:hover{border-color:#000 !important}
+.mg-h64:hover{color:#D8202A !important}
+.mg-h65:hover{color:#D8202A !important}
+.mg-h66:hover{color:#D8202A !important}
+.mg-h67:hover{color:#D8202A !important}
+.mg-h68:hover{color:#D8202A !important}
+.mg-h69:hover{color:#D8202A !important}
 .mg-h70:hover{color:#D8202A !important}
 .mg-h71:hover{color:#D8202A !important}
-.mg-h72:hover{color:#D8202A !important}
-.mg-h73:hover{color:#D8202A !important}
-.mg-h74:hover{color:#D8202A !important}
-.mg-h75:hover{color:#D8202A !important}
-.mg-h76:hover{color:#D8202A !important}
-.mg-h77:hover{color:#D8202A !important}
-.mg-h78:hover{background:#000 !important;color:#F2F2F2 !important}
-.mg-h79:hover{background:#000 !important;color:#F2F2F2 !important}
-.mg-h80:hover{color:#fff !important}
-.mg-h81:hover{color:#fff !important}
+.mg-h72:hover{background:#000 !important;color:#F2F2F2 !important}
+.mg-h73:hover{background:#000 !important;color:#F2F2F2 !important}
+.mg-h74:hover{color:#fff !important}
+.mg-h75:hover{color:#fff !important}
+.mg-h76:hover{color:#fff !important}
+.mg-h77:hover{color:#fff !important}
+.mg-h78:hover{color:#fff !important}
+.mg-h79:hover{color:#fff !important}
+.mg-h80:hover{border-color:#fff !important;color:#fff !important}
+.mg-h81:hover{border-color:#fff !important;color:#fff !important}
 .mg-h82:hover{color:#fff !important}
-.mg-h83:hover{color:#fff !important}
-.mg-h84:hover{color:#fff !important}
-.mg-h85:hover{color:#fff !important}
-.mg-h86:hover{border-color:#fff !important;color:#fff !important}
-.mg-h87:hover{border-color:#fff !important;color:#fff !important}
-.mg-h88:hover{color:#fff !important}
 </style>
 </head>
 <body>
@@ -244,7 +239,7 @@ a:hover { color: #F2444E; }
 </div>
 
 <section id="top" data-hero="1" style="position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px clamp(20px, 4vw, 56px) clamp(28px, 4vw, 52px); overflow: hidden;">
-  <div style="position: absolute; inset: 0; z-index: 0;">
+  <div data-need="hero" style="position: absolute; inset: 0; z-index: 0;">
     <img src="images/hero.jpg" alt="Unutrašnjost teretane Magnet — visok, otvoren prostor bivše sportske hale" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block;">
   </div>
   <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.48) 45%, rgba(0,0,0,0.82) 100%); pointer-events: none;"></div>
@@ -274,19 +269,12 @@ a:hover { color: #F2444E; }
   </div>
 </section>
 
-<div style="background: #D8202A; overflow: hidden; padding: 15px 0; border-top: 1px solid #000;">
-  <div data-marquee="1" style="display: flex; align-items: center; width: max-content; will-change: transform; animation: mg-marquee 18s linear infinite;">
-    <span style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: clamp(13px, 1.5vw, 17px); letter-spacing: 0.14em; line-height: 1; color: #fff; white-space: nowrap; padding-right: 40px;">10 TRENERA · VISOKI PLAFONI · SPORT CAFE U OBJEKTU · SVLAČIONICE SA TUŠEVIMA · GRUPNI TRENINZI · </span>
-    <span aria-hidden="true" style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: clamp(13px, 1.5vw, 17px); letter-spacing: 0.14em; line-height: 1; color: #fff; white-space: nowrap; padding-right: 40px;">10 TRENERA · VISOKI PLAFONI · SPORT CAFE U OBJEKTU · SVLAČIONICE SA TUŠEVIMA · GRUPNI TRENINZI · </span>
-  </div>
-</div>
-
 <section id="prostor" style="background: #F2F2F2; color: #000; padding: clamp(80px, 11vw, 170px) 0 clamp(60px, 8vw, 110px); scroll-margin-top: 78px;">
   <div style="max-width: 1560px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: clamp(32px, 6vw, 90px); align-items: end;" data-split="1">
     <h2 data-reveal="wipe" style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 120; font-weight: 900; font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: 0.92; letter-spacing: -0.03em; margin: 0; text-transform: uppercase;">Teren koji je postao teretana</h2>
     <p data-reveal="rise" style="--mg-d: 0.12s; font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.6; margin: 0; max-width: 62ch; color: #1A1A1A;">Magnet nije napravljen u poslovnom prostoru. Nastao je u zatvorenim sportskim terenima, pa je zadržao ono što se u teretanama retko viđa — visinu, širinu i vazduh. Ovde se ne vežba u redu između dva zida. Ima mesta da se diše, da se radi, i da niko nikome ne smeta.</p>
   </div>
-  <div data-reveal="cut" style="margin: clamp(48px, 7vw, 100px) 0 0; height: clamp(300px, 46vw, 620px); position: relative;" data-om-keep="1">
+  <div data-reveal="cut" data-need="big" style="margin: clamp(48px, 7vw, 100px) 0 0; height: clamp(300px, 46vw, 620px); position: relative;" data-om-keep="1">
     <img src="images/prostor.jpg" alt="edge-to-edge kadar koji pokazuje razmeru (2400×1200)" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
   </div>
 </section>
@@ -332,45 +320,62 @@ a:hover { color: #F2444E; }
   </svg>
   <div style="max-width: 1560px; margin: 0 auto; position: relative;">
     <h2 data-reveal="wipe" style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 122; font-weight: 900; font-size: clamp(2.6rem, 7vw, 6.4rem); line-height: 0.9; letter-spacing: -0.035em; margin: 0; text-transform: uppercase; max-width: 16ch;">Deset ljudi koji te vode</h2>
-    <p data-reveal="rise" style="--mg-d: 0.1s; max-width: 56ch; font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.6; margin: clamp(24px, 3vw, 34px) 0 clamp(36px, 5vw, 56px); color: #1A1A1A;">Svaki trener u Magnetu radi privatne treninge. Izaberi onog čiji ti stil odgovara — razgovor i procena su bez obaveze.</p>
-    <div role="group" aria-label="Filter trenera" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: clamp(36px, 5vw, 60px);">
-      
-        <button class="mg-h14" type="button" data-filter="svi" aria-pressed="true" style="border: 1px solid #000; background: #F2F2F2; color: #000; font-family: Chivo, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 22px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;" data-pill="1">Svi</button>
-      
-        <button class="mg-h15" type="button" data-filter="snaga" aria-pressed="false" style="border: 1px solid #000; background: #F2F2F2; color: #000; font-family: Chivo, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 22px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;" data-pill="0">Snaga</button>
-      
-        <button class="mg-h16" type="button" data-filter="mrsavljenje" aria-pressed="false" style="border: 1px solid #000; background: #F2F2F2; color: #000; font-family: Chivo, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 22px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;" data-pill="0">Mršavljenje</button>
-      
-        <button class="mg-h17" type="button" data-filter="funkcionalni" aria-pressed="false" style="border: 1px solid #000; background: #F2F2F2; color: #000; font-family: Chivo, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 22px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;" data-pill="0">Funkcionalni</button>
-      
-        <button class="mg-h18" type="button" data-filter="rehabilitacija" aria-pressed="false" style="border: 1px solid #000; background: #F2F2F2; color: #000; font-family: Chivo, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 22px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;" data-pill="0">Rehabilitacija</button>
-      
-        <button class="mg-h19" type="button" data-filter="pocetnici" aria-pressed="false" style="border: 1px solid #000; background: #F2F2F2; color: #000; font-family: Chivo, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 22px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;" data-pill="0">Početnici</button>
-      
-    </div>
+    <p data-reveal="rise" style="--mg-d: 0.1s; max-width: 56ch; font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.6; margin: clamp(24px, 3vw, 34px) 0 clamp(36px, 5vw, 56px); color: #1A1A1A;">Svaki trener u Magnetu radi privatne treninge. Javi se i dogovori termin sa trenerom koji ti odgovara.</p>
     <div data-tgrid="1" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(16px, 1.8vw, 26px);">
       
         <article data-tcard="1" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Marko Kraljević" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Marko Kraljević" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
               <img src="images/trener-01.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
             <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Marko Kraljević</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Snaga i kondicija</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Powerlifting</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Bazični pokreti</span>
-              
-            </div>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h20" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Marko Kraljević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h14" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Marko Kraljević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h21" href="tel:+381695486010" aria-label="Pozovi za trening sa Marko Kraljević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h15" href="tel:+381695486010" aria-label="Pozovi za trening sa Marko Kraljević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
+              </a>
+              <button class="mg-h16" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
+            </div>
+          </div>
+        </article>
+      
+        <article data-tcard="2" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Ana Kilibarda" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+            <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
+              <img src="images/trener-02.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+          </button>
+          <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Ana Kilibarda</h3>
+            <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
+              <a class="mg-h17" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Ana Kilibarda" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
+              </a>
+              <a class="mg-h18" href="tel:+381695486010" aria-label="Pozovi za trening sa Ana Kilibarda" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
+              </a>
+              <button class="mg-h19" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
+            </div>
+          </div>
+        </article>
+      
+        <article data-tcard="3" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Nikola Popović" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+            <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
+              <img src="images/trener-03.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+          </button>
+          <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Nikola Popović</h3>
+            <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
+              <a class="mg-h20" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Nikola Popović" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
+              </a>
+              <a class="mg-h21" href="tel:+381695486010" aria-label="Pozovi za trening sa Nikola Popović" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
               <button class="mg-h22" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
@@ -378,27 +383,19 @@ a:hover { color: #F2444E; }
           </div>
         </article>
       
-        <article data-tcard="2" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Ana Kilibarda" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+        <article data-tcard="4" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Branka Miljuš" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-02.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="images/trener-04.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Ana Kilibarda</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Mršavljenje i rekompozicija</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Ishrana</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Merenje napretka</span>
-              
-            </div>
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Branka Miljuš</h3>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h23" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Ana Kilibarda" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h23" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Branka Miljuš" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h24" href="tel:+381695486010" aria-label="Pozovi za trening sa Ana Kilibarda" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h24" href="tel:+381695486010" aria-label="Pozovi za trening sa Branka Miljuš" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
               <button class="mg-h25" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
@@ -406,27 +403,19 @@ a:hover { color: #F2444E; }
           </div>
         </article>
       
-        <article data-tcard="3" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Nikola Popović" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+        <article data-tcard="5" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Stevan Kesić" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-03.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="images/trener-05.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Nikola Popović</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Powerlifting i maksimalna snaga</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Takmičarski</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Napredni</span>
-              
-            </div>
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Stevan Kesić</h3>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h26" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Nikola Popović" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h26" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Stevan Kesić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h27" href="tel:+381695486010" aria-label="Pozovi za trening sa Nikola Popović" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h27" href="tel:+381695486010" aria-label="Pozovi za trening sa Stevan Kesić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
               <button class="mg-h28" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
@@ -434,27 +423,19 @@ a:hover { color: #F2444E; }
           </div>
         </article>
       
-        <article data-tcard="4" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Branka Miljuš" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+        <article data-tcard="6" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Stefan Stanković" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-04.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="images/trener-06.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Branka Miljuš</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Funkcionalni trening</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Pokretljivost</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Stabilnost</span>
-              
-            </div>
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Stefan Stanković</h3>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h29" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Branka Miljuš" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h29" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Stefan Stanković" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h30" href="tel:+381695486010" aria-label="Pozovi za trening sa Branka Miljuš" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h30" href="tel:+381695486010" aria-label="Pozovi za trening sa Stefan Stanković" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
               <button class="mg-h31" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
@@ -462,27 +443,19 @@ a:hover { color: #F2444E; }
           </div>
         </article>
       
-        <article data-tcard="5" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Stevan Kesić" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+        <article data-tcard="7" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Dunja Maričić" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-05.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="images/trener-07.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Stevan Kesić</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Rehabilitacija i povratak treningu</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Posle povrede</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Kineziologija</span>
-              
-            </div>
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Dunja Maričić</h3>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h32" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Stevan Kesić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h32" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Dunja Maričić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h33" href="tel:+381695486010" aria-label="Pozovi za trening sa Stevan Kesić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h33" href="tel:+381695486010" aria-label="Pozovi za trening sa Dunja Maričić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
               <button class="mg-h34" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
@@ -490,27 +463,19 @@ a:hover { color: #F2444E; }
           </div>
         </article>
       
-        <article data-tcard="6" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Stefan Stanković" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+        <article data-tcard="8" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Martin Krajtmar" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-06.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="images/trener-08.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Stefan Stanković</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Personalni trening</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Jedan na jedan</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Hipertrofija</span>
-              
-            </div>
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Martin Krajtmar</h3>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h35" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Stefan Stanković" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h35" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Martin Krajtmar" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h36" href="tel:+381695486010" aria-label="Pozovi za trening sa Stefan Stanković" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h36" href="tel:+381695486010" aria-label="Pozovi za trening sa Martin Krajtmar" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
               <button class="mg-h37" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
@@ -518,27 +483,19 @@ a:hover { color: #F2444E; }
           </div>
         </article>
       
-        <article data-tcard="7" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Dunja Maričić" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+        <article data-tcard="9" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Kristina Kika Vasić" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-07.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+              <img src="images/trener-09.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Dunja Maričić</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Potpuni početnici</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Prvi trening</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Bez iskustva</span>
-              
-            </div>
+            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Kristina Kika Vasić</h3>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h38" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Dunja Maričić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h38" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Kristina Kika Vasić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h39" href="tel:+381695486010" aria-label="Pozovi za trening sa Dunja Maričić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h39" href="tel:+381695486010" aria-label="Pozovi za trening sa Kristina Kika Vasić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
               <button class="mg-h40" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
@@ -546,86 +503,22 @@ a:hover { color: #F2444E; }
           </div>
         </article>
       
-        <article data-tcard="8" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Martin Krajtmar" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
-            <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-08.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
-            </div>
-          </button>
-          <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Martin Krajtmar</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Sportska priprema i kondicija</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Sportisti</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Kondicija</span>
-              
-            </div>
-            <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h41" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Martin Krajtmar" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
-              </a>
-              <a class="mg-h42" href="tel:+381695486010" aria-label="Pozovi za trening sa Martin Krajtmar" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
-              </a>
-              <button class="mg-h43" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
-            </div>
-          </div>
-        </article>
-      
-        <article data-tcard="9" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Kristina Kika Vasić" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
-            <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
-              <img src="images/trener-09.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
-            </div>
-          </button>
-          <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-            <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Kristina Kika Vasić</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Mršavljenje i grupni treninzi</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Grupni</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Kardio i snaga</span>
-              
-            </div>
-            <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h44" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Kristina Kika Vasić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
-              </a>
-              <a class="mg-h45" href="tel:+381695486010" aria-label="Pozovi za trening sa Kristina Kika Vasić" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
-              </a>
-              <button class="mg-h46" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
-            </div>
-          </div>
-        </article>
-      
         <article data-tcard="10" style="background: #fff; border: 1px solid #E0E0E0; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0,0,1), box-shadow 0.3s ease; will-change: transform;">
-          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Katarina Milojević" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
+          <button type="button" data-open-trainer="1" aria-label="Detalji o treneru Katarina Milojević" data-need="1" style="border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%;">
             <div data-portrait="1" style="aspect-ratio: 4 / 5; position: relative; filter: grayscale(1) contrast(1.05); transition: filter 0.4s ease;">
               <img src="images/trener-10.jpg" alt="portret 4:5" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
           </button>
           <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
             <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: 1.15rem; line-height: 1.05; letter-spacing: -0.02em; margin: 0;">Katarina Milojević</h3>
-            <p style="margin: 0; font-size: 12.5px; color: #8A8A8A; letter-spacing: 0.04em;">Pokretljivost i rehabilitacija</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Leđa i kukovi</span>
-              
-                <span style="font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #D9D9D9; padding: 5px 9px; color: #555;">Stariji članovi</span>
-              
-            </div>
             <div style="margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px;">
-              <a class="mg-h47" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Katarina Milojević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h41" href="https://instagram.com/magnet.rs" target="_blank" rel="noopener" aria-label="Instagram — Katarina Milojević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 17px; height: 17px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h48" href="tel:+381695486010" aria-label="Pozovi za trening sa Katarina Milojević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
+              <a class="mg-h42" href="tel:+381695486010" aria-label="Pozovi za trening sa Katarina Milojević" style="width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #D9D9D9; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 17px; height: 17px;"><path d="M5 3h3l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 5.2A2 2 0 0 1 5 3z"></path></svg>
               </a>
-              <button class="mg-h49" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
+              <button class="mg-h43" type="button" data-open-trainer="1" style="flex: 1; background: #D8202A; color: #fff; border: 0; font-family: Chivo, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 12px 8px; cursor: pointer; transition: background 0.2s ease;">Zakaži trening</button>
             </div>
           </div>
         </article>
@@ -661,7 +554,7 @@ a:hover { color: #F2444E; }
     </div>
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(20px, 4vw, 48px); margin-top: clamp(48px, 7vw, 90px); border-top: 1px solid #262626; padding-top: clamp(28px, 4vw, 44px);">
       <p data-outro="1" style="margin: 0; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.1rem, 2.2vw, 1.7rem); letter-spacing: -0.015em; max-width: 30ch;">Ne treba ti iskustvo, oprema ni forma. Treba ti samo termin.</p>
-      <a class="mg-h50" data-magnet="1" href="#kontakt" style="background: #D8202A; color: #fff; padding: 19px 32px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin: 0 auto;">Zakaži termin</a>
+      <a class="mg-h44" data-magnet="1" href="#kontakt" style="background: #D8202A; color: #fff; padding: 19px 32px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin: 0 auto;">Zakaži termin</a>
     </div>
   </div>
 </section>
@@ -799,40 +692,40 @@ a:hover { color: #F2444E; }
     <h2 data-reveal="wipe" style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 120; font-weight: 900; font-size: clamp(2.2rem, 5.2vw, 4.4rem); line-height: 0.94; letter-spacing: -0.03em; margin: 0 0 clamp(40px, 6vw, 72px); text-transform: uppercase; text-align: center;">Članarine</h2>
     <div data-cgrid="1" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: #2E2E2E; border: 1px solid #2E2E2E;">
       
-        <div class="mg-h51" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
+        <div class="mg-h45" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
           <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: clamp(1.15rem, 1.6vw, 1.5rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0; text-transform: uppercase; min-height: 2.1em;">Dnevna karta</h3>
           <div style="border-top: 1px solid #333; padding-top: 20px;">
             <div style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 116; font-weight: 900; font-size: clamp(2.1rem, 3.4vw, 3rem); line-height: 0.95; letter-spacing: -0.03em; color: #fff;">500<span style="font-size: 0.28em; color: #8A8A8A; margin-left: 0.35em; letter-spacing: 0.12em;">RSD</span></div>
           </div>
           <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #B5B5B5;">Jedan ulaz, bez članarine i bez obaveze. Dobra opcija ako si u prolazu ili treniraš neredovno.</p>
-          <a class="mg-h52" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Prijavi se</a>
+          <a class="mg-h46" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Prijavi se</a>
         </div>
       
-        <div class="mg-h53" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
+        <div class="mg-h47" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
           <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: clamp(1.15rem, 1.6vw, 1.5rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0; text-transform: uppercase; min-height: 2.1em;">Mesečna</h3>
           <div style="border-top: 1px solid #333; padding-top: 20px;">
             <div style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 116; font-weight: 900; font-size: clamp(2.1rem, 3.4vw, 3rem); line-height: 0.95; letter-spacing: -0.03em; color: #fff;">3.600<span style="font-size: 0.28em; color: #8A8A8A; margin-left: 0.35em; letter-spacing: 0.12em;">RSD</span></div>
           </div>
           <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #B5B5B5;">Neograničen ulaz u teretanu ceo mesec, svlačionice sa tuševima i pristup celom prostoru.</p>
-          <a class="mg-h54" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Prijavi se</a>
+          <a class="mg-h48" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Prijavi se</a>
         </div>
       
-        <div class="mg-h55" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
+        <div class="mg-h49" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
           <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: clamp(1.15rem, 1.6vw, 1.5rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0; text-transform: uppercase; min-height: 2.1em;">Magnet Premium</h3>
           <div style="border-top: 1px solid #333; padding-top: 20px;">
             <div style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 116; font-weight: 900; font-size: clamp(2.1rem, 3.4vw, 3rem); line-height: 0.95; letter-spacing: -0.03em; color: #fff;">Na upit<span style="font-size: 0.28em; color: #8A8A8A; margin-left: 0.35em; letter-spacing: 0.12em;"></span></div>
           </div>
           <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #B5B5B5;">Prošireni paket za članove koji hoće više od same teretane. Detalje i cenu dogovaraš na šalteru.</p>
-          <a class="mg-h56" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Pitaj za cenu</a>
+          <a class="mg-h50" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Pitaj za cenu</a>
         </div>
       
-        <div class="mg-h57" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
+        <div class="mg-h51" data-magnet="1" style="background: #1A1A1A; padding: clamp(28px, 2.8vw, 42px); display: flex; flex-direction: column; gap: 20px; min-height: clamp(320px, 24vw, 400px); transition: background 0.25s ease, box-shadow 0.25s ease;">
           <h3 style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 800; font-size: clamp(1.15rem, 1.6vw, 1.5rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0; text-transform: uppercase; min-height: 2.1em;">Magnet Akademija</h3>
           <div style="border-top: 1px solid #333; padding-top: 20px;">
             <div style="font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 116; font-weight: 900; font-size: clamp(2.1rem, 3.4vw, 3rem); line-height: 0.95; letter-spacing: -0.03em; color: #fff;">Na upit<span style="font-size: 0.28em; color: #8A8A8A; margin-left: 0.35em; letter-spacing: 0.12em;"></span></div>
           </div>
           <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #B5B5B5;">Program sa trenerom kroz duži period, sa planom i praćenjem napretka. Cena zavisi od izabranog programa.</p>
-          <a class="mg-h58" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Pitaj za cenu</a>
+          <a class="mg-h52" data-magnet="1" href="#kontakt" style="margin-top: auto; text-align: center; padding: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border: 1px solid #fff; color: #fff;">Pitaj za cenu</a>
         </div>
       
     </div>
@@ -841,7 +734,7 @@ a:hover { color: #F2444E; }
 
 <section id="cafe" data-cafesec="1" style="background: #F2F2F2; color: #000; padding: clamp(64px, 11vw, 150px) clamp(20px, 4vw, 56px); scroll-margin-top: 78px;">
   <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 70px); align-items: center;" data-split="1">
-    <div data-cafeimg="1" data-reveal="cut" style="height: clamp(260px, 34vw, 420px); position: relative;">
+    <div data-cafeimg="1" data-reveal="cut" data-need="1" style="height: clamp(260px, 34vw, 420px); position: relative;">
       <img src="images/cafe.jpg" alt="Sport Cafe (1200×800)" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
     <div data-cafetxt="1">
@@ -854,26 +747,26 @@ a:hover { color: #F2444E; }
 <section id="galerija" data-galsec="1" style="background: #000; padding: clamp(70px, 9vw, 140px) clamp(20px, 4vw, 56px) clamp(80px, 10vw, 150px); scroll-margin-top: 78px;">
   <div style="max-width: 1560px; margin: 0 auto;">
     <p data-galkicker="1" style="margin: 0 0 clamp(22px, 3vw, 38px); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8A8A;">Prostor i oprema</p>
-    <div data-reveal="rise" style="position: relative; width: 100%; aspect-ratio: 3 / 2; background: #000; overflow: hidden;" data-shatter="1">
-      <button class="mg-h59" type="button" data-gal="1" aria-label="Uvećaj fotografiju 1 — galerija-01.jpg — funkcionalna zona" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(0% 0%, 44% 0%, 38% 34%, 0% 18%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
+    <div data-reveal="rise" data-need="big" style="position: relative; width: 100%; aspect-ratio: 3 / 2; background: #000; overflow: hidden;" data-shatter="1">
+      <button class="mg-h53" type="button" data-gal="1" aria-label="Uvećaj fotografiju 1 — galerija-01.jpg — funkcionalna zona" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(0% 0%, 44% 0%, 38% 34%, 0% 18%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
         <img src="images/galerija-01.jpg" alt="galerija-01.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </button>
-      <button class="mg-h60" type="button" data-gal="2" aria-label="Uvećaj fotografiju 2 — galerija-02.jpg — zona slobodnih tegova" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(44% 0%, 72% 0%, 100% 26%, 100% 72%, 68% 52%, 38% 34%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
+      <button class="mg-h54" type="button" data-gal="2" aria-label="Uvećaj fotografiju 2 — galerija-02.jpg — zona slobodnih tegova" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(44% 0%, 72% 0%, 100% 26%, 100% 72%, 68% 52%, 38% 34%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
         <img src="images/galerija-02.jpg" alt="galerija-02.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </button>
-      <button class="mg-h61" type="button" data-gal="3" aria-label="Uvećaj fotografiju 3 — galerija-03.jpg — oprema" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(72% 0%, 100% 0%, 100% 26%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
+      <button class="mg-h55" type="button" data-gal="3" aria-label="Uvećaj fotografiju 3 — galerija-03.jpg — oprema" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(72% 0%, 100% 0%, 100% 26%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
         <img src="images/galerija-03.jpg" alt="galerija-03.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </button>
-      <button class="mg-h62" type="button" data-gal="4" aria-label="Uvećaj fotografiju 4 — galerija-04.jpg — rack i platforma" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(0% 18%, 38% 34%, 30% 66%, 0% 60%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
+      <button class="mg-h56" type="button" data-gal="4" aria-label="Uvećaj fotografiju 4 — galerija-04.jpg — rack i platforma" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(0% 18%, 38% 34%, 30% 66%, 0% 60%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
         <img src="images/galerija-04.jpg" alt="galerija-04.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </button>
-      <button class="mg-h63" type="button" data-gal="5" aria-label="Uvećaj fotografiju 5 — galerija-05.jpg — grupni trening" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(0% 60%, 30% 66%, 18% 100%, 0% 100%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
+      <button class="mg-h57" type="button" data-gal="5" aria-label="Uvećaj fotografiju 5 — galerija-05.jpg — grupni trening" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(0% 60%, 30% 66%, 18% 100%, 0% 100%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
         <img src="images/galerija-05.jpg" alt="galerija-05.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </button>
-      <button class="mg-h64" type="button" data-gal="6" aria-label="Uvećaj fotografiju 6 — galerija-06.jpg — bučice" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(38% 34%, 68% 52%, 78% 100%, 18% 100%, 30% 66%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
+      <button class="mg-h58" type="button" data-gal="6" aria-label="Uvećaj fotografiju 6 — galerija-06.jpg — bučice" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(38% 34%, 68% 52%, 78% 100%, 18% 100%, 30% 66%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
         <img src="images/galerija-06.jpg" alt="galerija-06.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </button>
-      <button class="mg-h65" type="button" data-gal="7" aria-label="Uvećaj fotografiju 7 — galerija-07.jpg — atmosfera treninga" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(68% 52%, 100% 72%, 100% 100%, 78% 100%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
+      <button class="mg-h59" type="button" data-gal="7" aria-label="Uvećaj fotografiju 7 — galerija-07.jpg — atmosfera treninga" style="position: absolute; inset: 0; border: 0; padding: 0; margin: 0; background: #0A0A0A; cursor: pointer; clip-path: polygon(68% 52%, 100% 72%, 100% 100%, 78% 100%); transition: transform 0.5s cubic-bezier(0.2,0,0,1), filter 0.5s ease; filter: grayscale(0.5) contrast(1.06) brightness(0.84);">
         <img src="images/galerija-07.jpg" alt="galerija-07.jpg" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </button>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;">
@@ -905,19 +798,19 @@ a:hover { color: #F2444E; }
     </blockquote>
     <div style="display: flex; justify-content: center; gap: 10px; margin-top: clamp(28px, 4vw, 44px);">
       
-        <button class="mg-h66" type="button" data-utisak="0" aria-label="Utisak 1 — Marija S." aria-current="1" data-dot="1" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
+        <button class="mg-h60" type="button" data-utisak="0" aria-label="Utisak 1 — Marija S." aria-current="1" data-dot="1" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
           <span data-dotin="1" style="display: block; width: 9px; height: 9px; border-radius: 50%; background: #C9C9C9; transition: background 0.2s ease;"></span>
         </button>
       
-        <button class="mg-h67" type="button" data-utisak="1" aria-label="Utisak 2 — Dušan P." aria-current="0" data-dot="0" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
+        <button class="mg-h61" type="button" data-utisak="1" aria-label="Utisak 2 — Dušan P." aria-current="0" data-dot="0" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
           <span data-dotin="0" style="display: block; width: 9px; height: 9px; border-radius: 50%; background: #C9C9C9; transition: background 0.2s ease;"></span>
         </button>
       
-        <button class="mg-h68" type="button" data-utisak="2" aria-label="Utisak 3 — Nemanja T." aria-current="0" data-dot="0" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
+        <button class="mg-h62" type="button" data-utisak="2" aria-label="Utisak 3 — Nemanja T." aria-current="0" data-dot="0" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
           <span data-dotin="0" style="display: block; width: 9px; height: 9px; border-radius: 50%; background: #C9C9C9; transition: background 0.2s ease;"></span>
         </button>
       
-        <button class="mg-h69" type="button" data-utisak="3" aria-label="Utisak 4 — Ivana R." aria-current="0" data-dot="0" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
+        <button class="mg-h63" type="button" data-utisak="3" aria-label="Utisak 4 — Ivana R." aria-current="0" data-dot="0" style="width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #C9C9C9; background: none; cursor: pointer; transition: border-color 0.2s ease;">
           <span data-dotin="0" style="display: block; width: 9px; height: 9px; border-radius: 50%; background: #C9C9C9; transition: background 0.2s ease;"></span>
         </button>
       
@@ -931,7 +824,7 @@ a:hover { color: #F2444E; }
     <div>
       
         <div data-faq="1" data-open="0" style="border-top: 1px solid #262626;">
-          <button class="mg-h70" type="button" data-faqbtn="0" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
+          <button class="mg-h64" type="button" data-faqbtn="0" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
             Mogu li da počnem ako nikad nisam vežbao?
             <span data-plus="1" style="flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.3s cubic-bezier(0.2,0,0,1);">
               <span style="position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: #D8202A;"></span>
@@ -946,7 +839,7 @@ a:hover { color: #F2444E; }
         </div>
       
         <div data-faq="1" data-open="0" style="border-top: 1px solid #262626;">
-          <button class="mg-h71" type="button" data-faqbtn="1" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
+          <button class="mg-h65" type="button" data-faqbtn="1" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
             Šta da ponesem na prvi trening?
             <span data-plus="1" style="flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.3s cubic-bezier(0.2,0,0,1);">
               <span style="position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: #D8202A;"></span>
@@ -961,7 +854,7 @@ a:hover { color: #F2444E; }
         </div>
       
         <div data-faq="1" data-open="0" style="border-top: 1px solid #262626;">
-          <button class="mg-h72" type="button" data-faqbtn="2" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
+          <button class="mg-h66" type="button" data-faqbtn="2" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
             Da li je potrebno zakazivanje?
             <span data-plus="1" style="flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.3s cubic-bezier(0.2,0,0,1);">
               <span style="position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: #D8202A;"></span>
@@ -976,7 +869,7 @@ a:hover { color: #F2444E; }
         </div>
       
         <div data-faq="1" data-open="0" style="border-top: 1px solid #262626;">
-          <button class="mg-h73" type="button" data-faqbtn="3" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
+          <button class="mg-h67" type="button" data-faqbtn="3" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
             Mogu li prvo samo da pogledam prostor?
             <span data-plus="1" style="flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.3s cubic-bezier(0.2,0,0,1);">
               <span style="position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: #D8202A;"></span>
@@ -991,7 +884,7 @@ a:hover { color: #F2444E; }
         </div>
       
         <div data-faq="1" data-open="0" style="border-top: 1px solid #262626;">
-          <button class="mg-h74" type="button" data-faqbtn="4" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
+          <button class="mg-h68" type="button" data-faqbtn="4" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
             Može li se članarina zamrznuti?
             <span data-plus="1" style="flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.3s cubic-bezier(0.2,0,0,1);">
               <span style="position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: #D8202A;"></span>
@@ -1006,7 +899,7 @@ a:hover { color: #F2444E; }
         </div>
       
         <div data-faq="1" data-open="0" style="border-top: 1px solid #262626;">
-          <button class="mg-h75" type="button" data-faqbtn="5" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
+          <button class="mg-h69" type="button" data-faqbtn="5" aria-expanded="false" style="width: 100%; background: none; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; text-align: left; color: #fff; font-family: Archivo, sans-serif; font-variation-settings: 'wdth' 112; font-weight: 700; font-size: clamp(1.02rem, 1.6vw, 1.35rem); letter-spacing: -0.01em; transition: color 0.2s ease;">
             Gde se tačno nalazite?
             <span data-plus="1" style="flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.3s cubic-bezier(0.2,0,0,1);">
               <span style="position: absolute; top: 9px; left: 0; width: 20px; height: 2px; background: #D8202A;"></span>
@@ -1036,11 +929,11 @@ a:hover { color: #F2444E; }
           </div>
           <div style="border-top: 1px solid #C9C9C9; padding-top: 16px;">
             <p style="margin: 0 0 6px; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8A8A;">Telefon</p>
-            <a class="mg-h76" href="tel:+381695486010" style="font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(1.05rem, 1.7vw, 1.4rem); letter-spacing: -0.01em; color: #000;">+381 69 5486010</a>
+            <a class="mg-h70" href="tel:+381695486010" style="font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(1.05rem, 1.7vw, 1.4rem); letter-spacing: -0.01em; color: #000;">+381 69 5486010</a>
           </div>
           <div style="border-top: 1px solid #C9C9C9; padding-top: 16px;">
             <p style="margin: 0 0 6px; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8A8A;">E-mail</p>
-            <a class="mg-h77" href="mailto:magnet.indjija@gmail.com" style="font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.25rem); letter-spacing: -0.01em; color: #000; overflow-wrap: anywhere;">magnet.indjija@gmail.com</a>
+            <a class="mg-h71" href="mailto:magnet.indjija@gmail.com" style="font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.25rem); letter-spacing: -0.01em; color: #000; overflow-wrap: anywhere;">magnet.indjija@gmail.com</a>
           </div>
           <div style="border-top: 1px solid #C9C9C9; padding-top: 16px;">
             <p style="margin: 0 0 6px; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8A8A;">Radno vreme</p>
@@ -1049,10 +942,10 @@ a:hover { color: #F2444E; }
           <div style="border-top: 1px solid #C9C9C9; padding-top: 16px;">
             <p style="margin: 0 0 6px; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8A8A;">Mreže</p>
             <div style="display: flex; gap: 12px;">
-              <a class="mg-h78" href="https://www.instagram.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Instagram — @magnet.rs" style="width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid #000; color: #000;">
+              <a class="mg-h72" href="https://www.instagram.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Instagram — @magnet.rs" style="width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid #000; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 22px; height: 22px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor"></circle></svg>
               </a>
-              <a class="mg-h79" href="https://www.facebook.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Facebook — Magnet Inđija" style="width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid #000; color: #000;">
+              <a class="mg-h73" href="https://www.facebook.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Facebook — Magnet Inđija" style="width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid #000; color: #000;">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
               </a>
             </div>
@@ -1078,25 +971,25 @@ a:hover { color: #F2444E; }
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 24px;">
       <nav style="display: grid; gap: 18px; align-content: start;" aria-label="Footer navigacija">
-        <a class="mg-h80" href="#prostor" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Prostor</a>
-        <a class="mg-h81" href="#programi" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Programi</a>
-        <a class="mg-h82" href="#treneri" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Treneri</a>
+        <a class="mg-h74" href="#prostor" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Prostor</a>
+        <a class="mg-h75" href="#programi" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Programi</a>
+        <a class="mg-h76" href="#treneri" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Treneri</a>
       </nav>
       <nav style="display: grid; gap: 18px; align-content: start;" aria-label="Footer navigacija 2">
-        <a class="mg-h83" href="#raspored" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Raspored</a>
-        <a class="mg-h84" href="#cenovnik" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Cenovnik</a>
-        <a class="mg-h85" href="#kontakt" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Kontakt</a>
+        <a class="mg-h77" href="#raspored" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Raspored</a>
+        <a class="mg-h78" href="#cenovnik" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Cenovnik</a>
+        <a class="mg-h79" href="#kontakt" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">Kontakt</a>
       </nav>
       <nav style="display: grid; gap: 18px; align-content: start; justify-items: start;" aria-label="Društvene mreže">
         <div style="display: flex; gap: 12px;">
-          <a class="mg-h86" href="https://www.instagram.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Instagram — @magnet.rs" style="width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid #333; color: #8A8A8A;">
+          <a class="mg-h80" href="https://www.instagram.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Instagram — @magnet.rs" style="width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid #333; color: #8A8A8A;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="width: 19px; height: 19px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor"></circle></svg>
           </a>
-          <a class="mg-h87" href="https://www.facebook.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Facebook — Magnet Inđija" style="width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid #333; color: #8A8A8A;">
+          <a class="mg-h81" href="https://www.facebook.com/magnet.rs/" target="_blank" rel="noopener" aria-label="Facebook — Magnet Inđija" style="width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid #333; color: #8A8A8A;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 19px; height: 19px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
           </a>
         </div>
-        <a class="mg-h88" href="tel:+381695486010" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">+381 69 5486010</a>
+        <a class="mg-h82" href="tel:+381695486010" style="font-size: 13.5px; line-height: 40px; color: #8A8A8A;">+381 69 5486010</a>
       </nav>
     </div>
   </div>
@@ -1120,7 +1013,7 @@ a:hover { color: #F2444E; }
 
 </div>
 <script>
-window.MAGNET_TRENERI = [{"id":1,"ime":"Marko Kraljević","slika":"images/trener-01.jpg","specijalnost":"Snaga i kondicija","kategorije":["snaga","pocetnici"],"oznake":["Powerlifting","Bazični pokreti"],"bio":"Trenira u Magnetu od prvog dana i najviše voli da radi sa ljudima koji misle da su „preslabi za teretanu\". Vodi kroz čučanj, mrtvo dizanje i bench od nule, sporo i bez preskakanja koraka. Kod njega se prvo uči tehnika, pa se dodaje kilaža.","sertifikati":["Fitnes instruktor, Sportski savez Srbije","Starting Strength — osnovni kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 08–12h","Sre 16–20h","Pet 08–12h"]},{"id":2,"ime":"Ana Kilibarda","slika":"images/trener-02.jpg","specijalnost":"Mršavljenje i rekompozicija","kategorije":["mrsavljenje","pocetnici"],"oznake":["Ishrana","Merenje napretka"],"bio":"Ana pravi planove koji se poklapaju sa životom, a ne sa ideal­nim rasporedom. Radi sa članicama koje treniraju tri puta nedeljno i imaju decu, smene i ograničeno vreme. Napredak meri obimom i snagom, ne samo vagom.","sertifikati":["Nutricionista — savetnik za ishranu","Personalni trener, nivo 2"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 17–21h","Uto 09–13h","Čet 17–21h"]},{"id":3,"ime":"Nikola Popović","slika":"images/trener-03.jpg","specijalnost":"Powerlifting i maksimalna snaga","kategorije":["snaga"],"oznake":["Takmičarski","Napredni"],"bio":"Takmiči se u powerliftingu i vodi članove koji hoće brojeve na šipki. Piše cikluse od osam do dvanaest nedelja i insistira da se svaki trening upiše. Radi i sa mlađim vežbačima koji prvi put ulaze u ozbiljan program.","sertifikati":["Sudija Srpskog powerlifting saveza","Trener snage i kondicije"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 16–21h","Čet 16–21h","Sub 09–13h"]},{"id":4,"ime":"Branka Miljuš","slika":"images/trener-04.jpg","specijalnost":"Funkcionalni trening","kategorije":["funkcionalni"],"oznake":["Pokretljivost","Stabilnost"],"bio":"Branka drži grupne funkcionalne treninge i personalne sesije za ljude koji sede osam sati dnevno. Počinje od kukova i ramena, pa onda dodaje opterećenje. Njeni treninzi su kratki, gusti i uvek se završe istezanjem.","sertifikati":["Kettlebell instruktor","FMS — nivo 1"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 18–21h","Sre 18–21h","Pet 18–21h"]},{"id":5,"ime":"Stevan Kesić","slika":"images/trener-05.jpg","specijalnost":"Rehabilitacija i povratak treningu","kategorije":["rehabilitacija"],"oznake":["Posle povrede","Kineziologija"],"bio":"Diplomirani kineziolog, radi sa članovima posle operacija kolena, ramena i problema sa krstima. Sarađuje sa fizijatrima i ne ide brže nego što telo dozvoljava. Kod njega dolaze i ljudi koji godinama nisu vežbali zbog bola u leđima.","sertifikati":["Diplomirani kineziolog","Korektivne vežbe — sertifikat"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 10–14h","Čet 10–14h","Pet 15–19h"]},{"id":6,"ime":"Stefan Stanković","slika":"images/trener-06.jpg","specijalnost":"Personalni trening","kategorije":["snaga","funkcionalni"],"oznake":["Jedan na jedan","Hipertrofija"],"bio":"Stefan radi isključivo jedan na jedan i drži maksimalno šest članova nedeljno da bi svakome pisao plan zasebno. Najviše ga zanima kako se snaga prevodi u izgled i obrnuto. Voli da radi sa ljudima koji su već vežbali, ali su stali.","sertifikati":["Personalni trener, nivo 3","Trening hipertrofije — kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Sre 07–11h","Čet 07–11h","Sub 10–14h"]},{"id":7,"ime":"Dunja Maričić","slika":"images/trener-07.jpg","specijalnost":"Potpuni početnici","kategorije":["pocetnici"],"oznake":["Prvi trening","Bez iskustva"],"bio":"Dunja najčešće vodi prve treninge novih članova — provede kroz prostor, objasni čemu služi koja sprava i uradi laku procenu. Naviknuta je na ljude koji ulaze u teretanu prvi put u životu i to joj je najdraži deo posla.","sertifikati":["Fitnes instruktor","Prva pomoć — Crveni krst"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 09–13h","Sre 09–13h","Ned 10–14h"]},{"id":8,"ime":"Martin Krajtmar","slika":"images/trener-08.jpg","specijalnost":"Sportska priprema i kondicija","kategorije":["funkcionalni","snaga"],"oznake":["Sportisti","Kondicija"],"bio":"Radi sa fudbalerima i košarkašima iz Inđije i okoline u pauzi između sezona. Testira skok, sprint i izdržljivost pa prema tome piše blok od šest nedelja. Prima i rekreativce koji trče polumaratone.","sertifikati":["Trener kondicione pripreme","Sprint i pliometrija — kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 07–11h","Čet 19–22h","Sub 08–12h"]},{"id":9,"ime":"Kristina Kika Vasić","slika":"images/trener-09.jpg","specijalnost":"Mršavljenje i grupni treninzi","kategorije":["mrsavljenje","funkcionalni"],"oznake":["Grupni","Kardio i snaga"],"bio":"Kika drži najposećenije grupne treninge u Magnetu — kombinacija kardija i snage u pedeset minuta. Zna sva imena u sali i to je pola razloga zašto ljudi dolaze. Pored grupnih radi i personalne za one koji hoće brži tempo.","sertifikati":["Group fitness instruktor","Personalni trener, nivo 2"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 19–21h","Sre 19–21h","Pet 17–20h"]},{"id":10,"ime":"Katarina Milojević","slika":"images/trener-10.jpg","specijalnost":"Pokretljivost i rehabilitacija","kategorije":["rehabilitacija","funkcionalni"],"oznake":["Leđa i kukovi","Stariji članovi"],"bio":"Katarina radi sa članovima preko pedeset godina i sa svima kojima je pokretljivost uža tačka od snage. Treninzi su mirni, sa dosta objašnjavanja zašto se nešto radi. Vodi i jutarnju grupu za istezanje.","sertifikati":["Instruktor pokretljivosti","Kineziterapija — kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 08–12h","Čet 08–12h","Ned 11–15h"]}];
+window.MAGNET_TRENERI = [{"id":1,"ime":"Marko Kraljević","slika":"images/trener-01.jpg","specijalnost":"Snaga i kondicija","bio":"Trenira u Magnetu od prvog dana i najviše voli da radi sa ljudima koji misle da su „preslabi za teretanu\". Vodi kroz čučanj, mrtvo dizanje i bench od nule, sporo i bez preskakanja koraka. Kod njega se prvo uči tehnika, pa se dodaje kilaža.","sertifikati":["Fitnes instruktor, Sportski savez Srbije","Starting Strength — osnovni kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 08–12h","Sre 16–20h","Pet 08–12h"]},{"id":2,"ime":"Ana Kilibarda","slika":"images/trener-02.jpg","specijalnost":"Mršavljenje i rekompozicija","bio":"Ana pravi planove koji se poklapaju sa životom, a ne sa ideal­nim rasporedom. Radi sa članicama koje treniraju tri puta nedeljno i imaju decu, smene i ograničeno vreme. Napredak meri obimom i snagom, ne samo vagom.","sertifikati":["Nutricionista — savetnik za ishranu","Personalni trener, nivo 2"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 17–21h","Uto 09–13h","Čet 17–21h"]},{"id":3,"ime":"Nikola Popović","slika":"images/trener-03.jpg","specijalnost":"Powerlifting i maksimalna snaga","bio":"Takmiči se u powerliftingu i vodi članove koji hoće brojeve na šipki. Piše cikluse od osam do dvanaest nedelja i insistira da se svaki trening upiše. Radi i sa mlađim vežbačima koji prvi put ulaze u ozbiljan program.","sertifikati":["Sudija Srpskog powerlifting saveza","Trener snage i kondicije"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 16–21h","Čet 16–21h","Sub 09–13h"]},{"id":4,"ime":"Branka Miljuš","slika":"images/trener-04.jpg","specijalnost":"Funkcionalni trening","bio":"Branka drži grupne funkcionalne treninge i personalne sesije za ljude koji sede osam sati dnevno. Počinje od kukova i ramena, pa onda dodaje opterećenje. Njeni treninzi su kratki, gusti i uvek se završe istezanjem.","sertifikati":["Kettlebell instruktor","FMS — nivo 1"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 18–21h","Sre 18–21h","Pet 18–21h"]},{"id":5,"ime":"Stevan Kesić","slika":"images/trener-05.jpg","specijalnost":"Rehabilitacija i povratak treningu","bio":"Diplomirani kineziolog, radi sa članovima posle operacija kolena, ramena i problema sa krstima. Sarađuje sa fizijatrima i ne ide brže nego što telo dozvoljava. Kod njega dolaze i ljudi koji godinama nisu vežbali zbog bola u leđima.","sertifikati":["Diplomirani kineziolog","Korektivne vežbe — sertifikat"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 10–14h","Čet 10–14h","Pet 15–19h"]},{"id":6,"ime":"Stefan Stanković","slika":"images/trener-06.jpg","specijalnost":"Personalni trening","bio":"Stefan radi isključivo jedan na jedan i drži maksimalno šest članova nedeljno da bi svakome pisao plan zasebno. Najviše ga zanima kako se snaga prevodi u izgled i obrnuto. Voli da radi sa ljudima koji su već vežbali, ali su stali.","sertifikati":["Personalni trener, nivo 3","Trening hipertrofije — kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Sre 07–11h","Čet 07–11h","Sub 10–14h"]},{"id":7,"ime":"Dunja Maričić","slika":"images/trener-07.jpg","specijalnost":"Potpuni početnici","bio":"Dunja najčešće vodi prve treninge novih članova — provede kroz prostor, objasni čemu služi koja sprava i uradi laku procenu. Naviknuta je na ljude koji ulaze u teretanu prvi put u životu i to joj je najdraži deo posla.","sertifikati":["Fitnes instruktor","Prva pomoć — Crveni krst"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 09–13h","Sre 09–13h","Ned 10–14h"]},{"id":8,"ime":"Martin Krajtmar","slika":"images/trener-08.jpg","specijalnost":"Sportska priprema i kondicija","bio":"Radi sa fudbalerima i košarkašima iz Inđije i okoline u pauzi između sezona. Testira skok, sprint i izdržljivost pa prema tome piše blok od šest nedelja. Prima i rekreativce koji trče polumaratone.","sertifikati":["Trener kondicione pripreme","Sprint i pliometrija — kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 07–11h","Čet 19–22h","Sub 08–12h"]},{"id":9,"ime":"Kristina Kika Vasić","slika":"images/trener-09.jpg","specijalnost":"Mršavljenje i grupni treninzi","bio":"Kika drži najposećenije grupne treninge u Magnetu — kombinacija kardija i snage u pedeset minuta. Zna sva imena u sali i to je pola razloga zašto ljudi dolaze. Pored grupnih radi i personalne za one koji hoće brži tempo.","sertifikati":["Group fitness instruktor","Personalni trener, nivo 2"],"instagram":"https://instagram.com/magnet.rs","termini":["Pon 19–21h","Sre 19–21h","Pet 17–20h"]},{"id":10,"ime":"Katarina Milojević","slika":"images/trener-10.jpg","specijalnost":"Pokretljivost i rehabilitacija","bio":"Katarina radi sa članovima preko pedeset godina i sa svima kojima je pokretljivost uža tačka od snage. Treninzi su mirni, sa dosta objašnjavanja zašto se nešto radi. Vodi i jutarnju grupu za istezanje.","sertifikati":["Instruktor pokretljivosti","Kineziterapija — kurs"],"instagram":"https://instagram.com/magnet.rs","termini":["Uto 08–12h","Čet 08–12h","Ned 11–15h"]}];
 window.MAGNET_UTISCI = [{"tekst":"Trenirala sam u dve teretane u Inđiji pre ovoga i nijedna nije imala mesta da se normalno radi mrtvo dizanje. Ovde ne moraš da čekaš ni da se izvinjavaš.","ime":"Marija S.","duzina":"Član godinu i po"},{"tekst":"Došao sam samo da vidim kako izgleda i ostao. Dunja mi je prvi put objasnila šta radim, umesto da me pusti da lutam.","ime":"Dušan P.","duzina":"Član osam meseci"},{"tekst":"Posle treninga skoro uvek ostanem na kafi. Zvuči glupo, ali to je razlog zbog kog dolazim redovno već drugu godinu.","ime":"Nemanja T.","duzina":"Član dve godine"},{"tekst":"Vratila sam se treningu posle operacije kolena i Stevan je jedini koji nije rekao „ma to je ništa\". Radili smo šest meseci pažljivo i sad čučim bez straha.","ime":"Ivana R.","duzina":"Član deset meseci"}];
 window.MAGNET_GALERIJA = ["galerija-01.jpg — funkcionalna zona","galerija-02.jpg — zona slobodnih tegova","galerija-03.jpg — oprema","galerija-04.jpg — rack i platforma","galerija-05.jpg — grupni trening","galerija-06.jpg — bučice","galerija-07.jpg — atmosfera treninga"];
 </script>

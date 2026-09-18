@@ -93,13 +93,6 @@
     el.addEventListener("click", function () { setMenu(false); });
   });
 
-  /* ---------- 5. Traka: pauza na hover ---------- */
-  var marquee = $("[data-marquee]");
-  if (marquee) {
-    marquee.parentNode.addEventListener("mouseenter", function () { marquee.style.animationPlayState = "paused"; });
-    marquee.parentNode.addEventListener("mouseleave", function () { marquee.style.animationPlayState = "running"; });
-  }
-
   /* ---------- 6. Magnetni kursor, magnetna dugmad, 3D tilt ---------- */
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var cursor = $("[data-cursor]");
@@ -107,7 +100,6 @@
     var magnets = [], mTick = 0, mx = 0, my = 0, mt = null, lastCard = null;
     var refreshMagnets = function () { magnets = $$("[data-magnet]"); };
     refreshMagnets();
-    window.__mgRefreshMagnets = refreshMagnets;
     function moveFrame() {
       if (cursor) {
         cursor.style.transform = "translate(" + mx + "px," + my + "px)";
@@ -151,54 +143,6 @@
   } else if (cursor) {
     cursor.parentNode.removeChild(cursor);
   }
-
-  /* ---------- 7. Filter trenera + FLIP ---------- */
-  var grid = $("[data-tgrid]");
-  var filtriran = "svi";
-  function applyFilter(key) {
-    if (!grid || key === filtriran) return;
-    var cards = $$("[data-tcard]", grid);
-    var first = {};
-    cards.forEach(function (el) { first[el.getAttribute("data-tcard")] = el.getBoundingClientRect(); });
-    filtriran = key;
-    cards.forEach(function (el) {
-      var id = parseInt(el.getAttribute("data-tcard"), 10);
-      var t = TRENERI.filter(function (x) { return x.id === id; })[0];
-      var vis = key === "svi" || (t && t.kategorije.indexOf(key) > -1);
-      el.style.display = vis ? "" : "none";
-    });
-    $$("[data-filter]").forEach(function (b) {
-      var on = b.getAttribute("data-filter") === key;
-      b.setAttribute("data-pill", on ? "1" : "0");
-      b.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-    if (reduce) return;
-    var visible = cards.filter(function (el) { return el.style.display !== "none"; });
-    visible.forEach(function (el, i) {
-      var before = first[el.getAttribute("data-tcard")];
-      var after = el.getBoundingClientRect();
-      if (before && before.width) {
-        var dx = before.left - after.left, dy = before.top - after.top;
-        el.style.transition = "none";
-        el.style.transform = (dx || dy) ? "translate(" + dx + "px," + dy + "px)" : "";
-        el.style.opacity = "1";
-      } else {
-        el.style.transition = "none";
-        el.style.opacity = "0";
-        el.style.transform = "scale(0.94)";
-      }
-      requestAnimationFrame(function () {
-        var d = (i * 0.022).toFixed(3);
-        el.style.transition = "transform 0.35s cubic-bezier(0.2,0,0,1) " + d + "s, opacity 0.35s ease " + d + "s";
-        el.style.transform = "";
-        el.style.opacity = "1";
-      });
-    });
-    if (window.__mgRefreshMagnets) window.__mgRefreshMagnets();
-  }
-  $$("[data-filter]").forEach(function (b) {
-    b.addEventListener("click", function () { applyFilter(b.getAttribute("data-filter")); });
-  });
 
   /* ---------- 8. Panel trenera ---------- */
   var panel = $("[data-panel]"), scrim = $("[data-scrim]"), panelBody = $("[data-panel-body]");
